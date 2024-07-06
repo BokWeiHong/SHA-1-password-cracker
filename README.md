@@ -33,7 +33,8 @@ Optionally, the function can use salts from another file. If salts are used, eac
    ```bash
    git clone https://github.com/your-username/sha1-password-cracker.git
    cd sha1-password-cracker
-
+   ```
+   
 2. Ensure you have `top-10000-passwords.txt` and `known-salts.txt` in the project directory.
 
 ### Usage
@@ -44,6 +45,7 @@ Optionally, the function can use salts from another file. If salts are used, eac
   sha1_hash = "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8"
   password = crack_sha1_hash(sha1_hash)
   print(password)  # Output: "password"
+  ```
 
 2. With salt:
   ```python
@@ -51,3 +53,24 @@ Optionally, the function can use salts from another file. If salts are used, eac
   sha1_hash = "53d8b3dc9d39f0184144674e310185e41a87ffd5"
   password = crack_sha1_hash(sha1_hash, use_salts=True)
   print(password)  # Output: "superman"
+  ```
+
+### Testing
+Run the unit tests provided in test_module.py to verify the functionality:
+```bash
+python -m unittest test_module.py
+```
+
+### Example Hashed Passwords
+
+Test the function with the following SHA-1 hashes:
+
+- b305921a3723cd5d70a375cd21a61e60aabb84ec should return "sammy123"
+- c7ab388a5ebefbf4d550652f1eb4d833e5316e3e should return "abacab"
+- 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 should return "password"
+
+With use_salts=True:
+
+- 53d8b3dc9d39f0184144674e310185e41a87ffd5 should return "superman"
+- da5a4e8cf89539e66097acd2f8af128acae2f8ae should return "q1w2e3r4t5"
+- ea3f62d498e3b98557f9f9cd0d905028b3b019e1 should return "bubbles1"
